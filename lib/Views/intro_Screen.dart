@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});
@@ -79,38 +80,47 @@ class _IntroScreenState extends State<IntroScreen> {
                       color: Colors.white,
                     ),
                   ),
-                  SizedBox(height: 30),
-                  GlassmorphicContainer(
-                    width: 150,
-                    height: 50,
-                    borderRadius: 30,
-                    blur: 20,
-                    alignment: Alignment.center,
-                    border: 1,
-                    linearGradient: LinearGradient(
-                      colors: [
-                        Colors.yellow.withOpacity(0.2),
-                        Colors.orange.withOpacity(0.1),
-                      ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                    borderGradient: LinearGradient(
-                      colors: [
-                        Colors.yellow.withOpacity(0.2),
-                        Colors.orange.withOpacity(0.1),
-                        Colors.red.withOpacity(0.05),
-                        Colors.red.withOpacity(0.01),
-                      ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                    child: Text(
-                      "Get Started",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                  SizedBox(height: 40),
+                  GestureDetector(
+                    onTap: () async {
+                      Navigator.of(context)
+                          .pushNamedAndRemoveUntil('/', (context) => false);
+                      SharedPreferences sharedPreference =
+                          await SharedPreferences.getInstance();
+                      sharedPreference.setBool("intro", true);
+                    },
+                    child: GlassmorphicContainer(
+                      width: 150,
+                      height: 50,
+                      borderRadius: 30,
+                      blur: 20,
+                      alignment: Alignment.center,
+                      border: 1,
+                      linearGradient: LinearGradient(
+                        colors: [
+                          Colors.yellow.withOpacity(0.3),
+                          Colors.orange.withOpacity(0.2),
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                      borderGradient: LinearGradient(
+                        colors: [
+                          Colors.yellow.withOpacity(0.2),
+                          Colors.orange.withOpacity(0.1),
+                          Colors.red.withOpacity(0.05),
+                          Colors.red.withOpacity(0.01),
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                      child: Text(
+                        "Get Started",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),

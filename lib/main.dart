@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:weather_app/providers/connectivity_provider.dart';
+import 'package:weather_app/providers/convert_provider.dart';
 import 'package:weather_app/providers/themeprovider.dart';
 
+import 'Views/Splace_Screen.dart';
+import 'Views/detail_page.dart';
 import 'Views/home_page.dart';
 import 'Views/intro_Screen.dart';
 
@@ -9,7 +13,9 @@ void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(
       create: (context) => Themeprovider(),
-    )
+    ),
+    ChangeNotifierProvider(create: (_) => ConavertProvider()),
+    ChangeNotifierProvider(create: (_) => ConnectivityProvider())
   ], child: MyApp()));
 }
 
@@ -25,11 +31,12 @@ class MyApp extends StatelessWidget {
           ? ThemeMode.dark
           : ThemeMode.light,
       debugShowCheckedModeBanner: false,
-      //initialRoute: 'IntroScreen',
-      //initialRoute: 'IntroScreen',
+      initialRoute: 'SplaceScreen',
       routes: {
         '/': (context) => HomePage(),
         'IntroScreen': (context) => IntroScreen(),
+        'DetailPage': (context) => DetailPage(),
+        'SplaceScreen': (context) => SplaceScreen()
       },
     );
   }
