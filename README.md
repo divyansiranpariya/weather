@@ -69,3 +69,4 @@ This project uses the following packages:
 ![w4](https://github.com/user-attachments/assets/77881143-f314-410a-a851-4eeb8b182413)
 ![w5](https://github.com/user-attachments/assets/ce9f1b98-5e98-43e7-92e3-785b5d747304)
 >>>>>>> f13efa8c131a3c75c802ac77812beccf2b49077e
+![WhatsApp Image 2024-07-29 at 12 46 10_9fc4f456](https://github.com/user-attachments/assets/87a8fa4c-1231-41dc-a50b-bf38429b1f42)
